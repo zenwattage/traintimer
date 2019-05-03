@@ -48,3 +48,8 @@ h1 {
 .card-body {
     margin-bottom: 10px;
 }
+
+th {
+    margin: 10px;
+    padding-right: 20px;
+}
