@@ -1,17 +1,19 @@
-// Initialize Firebase
-var config = {
+const config = {
     apiKey: "AIzaSyCDDEvDN8T21KSpUnxrUrfozcXM7EywOoM",
     authDomain: "traintimer-1cfec.firebaseapp.com",
     databaseURL: "https://traintimer-1cfec.firebaseio.com",
     projectId: "traintimer-1cfec",
-    storageBucket: "",
+    storageBucket: "traintimer-1cfec.appspot.com",
     messagingSenderId: "810687246335"
+
   };
 
-  firebase.initializeApp(config);
+// Initialize Firebase
+
+firebase.initializeApp(config);
 
 //reference the database.
-var database = firebase.database();
+var trainDatabase = firebase.database();
 
 // Assumptions
 var tFrequency = 17;
