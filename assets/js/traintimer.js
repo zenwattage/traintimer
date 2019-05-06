@@ -54,8 +54,14 @@ $("#submit").on("click", function() {
 
 //console.log(trainDatabase.ref());
 
+//on child added update
+trainDatabase.ref().on("child_added", function(snapshot) {
 
 
+
+
+
+});//end on child added function
 
 
 
