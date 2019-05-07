@@ -62,14 +62,20 @@ trainDatabase.ref().on("child_added", function(snapshot) {
   var trainFreq = snapshot.val().trainFreq;
 
   //remainder
+  var remainder = moment().diff(moment().minute(firstTrain), "minutes") % trainFreq;
   //minutes
+  var minutes = trainFreq - remainder;
   //arrival
+  
+
   
 
 
 
 //append to table
-$("#trainOutput").append("<tr><td>" + name + "<tr><td>" + "<tr><td>" + destination + "<tr><td>" + "<tr><td>" + firstTrain + "<tr><td>");
+$("#trainOutput").append("<tr><td>" + name + "</tr></td>");
+$("#trainOutput").append("<tr><td>" + destination + "</tr></td>");
+$("#trainOutput").append("<tr><td>" + "<tr><td>" + firstTrain + "</tr></td>");
 
 
 });//end on child added function
