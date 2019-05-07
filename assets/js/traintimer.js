@@ -57,12 +57,20 @@ $("#submit").on("click", function() {
 //on child added update
 trainDatabase.ref().on("child_added", function(snapshot) {
   var name = snapshot.val().name;
+  var destination = snapshot.val().destination;
+  var firstTrain = snapshot.val().firstTrain;
+  var trainFreq = snapshot.val().trainFreq;
 
+  //remainder
+  //minutes
+  //arrival
+  
 
 
 
 //append to table
-$("#trainOutput").append("<tr><td>" + name + "<tr><td>");
+$("#trainOutput").append("<tr><td>" + name + "<tr><td>" + "<tr><td>" + destination + "<tr><td>" + "<tr><td>" + firstTrain + "<tr><td>");
+
 
 });//end on child added function
 
