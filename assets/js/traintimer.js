@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const config = {
     apiKey: "AIzaSyCDDEvDN8T21KSpUnxrUrfozcXM7EywOoM",
     authDomain: "traintimer-1cfec.firebaseapp.com",
@@ -19,10 +21,12 @@ var trainDatabase = firebase.database();
 // on submit button click
 $("#submit").on("click", function() {
 
+  // get info from input boxes
   var trainName = $("#train-name").val().trim();
   var destination = $("#destination").val().trim();
   var firstTrain = moment($("#first-train").val().trim(), "HH:mm").subtract(10, "years").format("x");
   var trainFreq = $("#trainFreq").val().trim();
+
 
   var newTrain = {
     name: trainName,
@@ -30,8 +34,11 @@ $("#submit").on("click", function() {
     firstTrain: firstTrain,
     trainFreq: trainFreq
   }
-  //console.log(pushData);
+  
+  
+  console.log(newTrain);
 
+  // firstTrain: "1241751600000"
   trainDatabase.ref().push(newTrain);
   
   console.log("Train added!");
