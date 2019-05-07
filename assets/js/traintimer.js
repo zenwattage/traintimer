@@ -33,10 +33,8 @@ $("#submit").on("click", function() {
     trainFreq: trainFreq
   }
   
-  
   console.log(newTrain);
-
-  // firstTrain: "1241751600000"
+  
   trainDatabase.ref().push(newTrain);
   
   console.log("Train added!");
@@ -55,28 +53,23 @@ $("#submit").on("click", function() {
 
 
 //on child added update
-trainDatabase.ref().on("child_added", function(Snapshot) {
-  var name = Snapshot.val().name;
-  var destination = Snapshot.val().destination;
-  var firstTrain = Snapshot.val().firstTrain;
-  var trainFreq = Snapshot.val().trainFreq;
-
+trainDatabase.ref().on("child_added", function(snapshot) {
+  var name = snapshot.val().name;
+  var destination = snapshot.val().destination;
+  var trainFreq = snapshot.val().trainFreq;
+  var firstTrain = snapshot.val().firstTrain;
   //remainder
-  var remainder = moment().diff(moment().minute(firstTrain), "minutes") % trainFreq;
+  var remainder = moment().diff(moment().unix(firstTrain), "minutes") % trainFreq;
   //minutes
   var minutesTilArrival = trainFreq - remainder;
   //arrival
   var arrival = moment().add(minutesTilArrival, "minutes").format("hh:mm");
 
-  
-
-
-
 //append to table
-$("#trainOutput").append("<tr><td>" + name + "</tr></td>");
-$("#trainOutput").append("<tr><td>" + destination + "</tr></td>");
-$("#trainOutput").append("<tr><td>" + minutesTilArrival + "</tr></td>");
-$("#trainOutput").append("<tr><td>" +  arrival + "</tr></td>");
+$("#trainOutput").append("<tr><td>Train name : " + name + "</tr></td>");
+$("#trainOutput").append("<tr><td>Going to: " + destination + "</tr></td>");
+$("#trainOutput").append("<tr><td>Arriving in: " + minutesTilArrival + " minutes. </tr></td>");
+$("#trainOutput").append("<tr><td>Train arrives at: " +  arrival + " local time.</tr></td>");
 
 
 });//end on child added function
