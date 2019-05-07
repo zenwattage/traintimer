@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const config = {
     apiKey: "AIzaSyCDDEvDN8T21KSpUnxrUrfozcXM7EywOoM",
     authDomain: "traintimer-1cfec.firebaseapp.com",
