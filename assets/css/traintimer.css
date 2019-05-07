@@ -9,11 +9,15 @@ html {
     justify-content: center;
     margin: auto;
     height: 100%;
+    
 }
 
 
 body {
-    background-color: beige;
+    
+    /*/background-image: url('./images/train.jpg');*/
+   
+    
 }
 .jumbotron {
     background-color: chocolate;

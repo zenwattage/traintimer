@@ -14,7 +14,7 @@ firebase.initializeApp(config);
 
 //reference the database.
 var trainDatabase = firebase.database();
-
+//console.log(trainDatabase);
 
 
 
@@ -36,7 +36,7 @@ $("#submit").on("click", function() {
     destination: destination,
     firstTrain: firstTrain,
     trainFreq: trainFreq
-  };
+  }
   //console.log(pushData);
 
   trainDatabase.ref().push(newTrain);
@@ -50,16 +50,19 @@ $("#submit").on("click", function() {
   $("#trainFreq").val("");
 
   return false;
-});
+})
 
 //console.log(trainDatabase.ref());
 
 //on child added update
 trainDatabase.ref().on("child_added", function(snapshot) {
+  var name = snapshot.val().name;
 
 
 
 
+//append to table
+$("#trainOutput").append("<tr><td>" + name + "<tr><td>");
 
 });//end on child added function
 
