@@ -22,7 +22,7 @@ $("#submit").on("click", function() {
   // get info from input boxes
   var trainName = $("#train-name").val().trim();
   var destination = $("#destination").val().trim();
-  var firstTrain = moment($("#first-train").val().trim(), "HH:mm").subtract(10, "years").format("x");
+  var firstTrain = moment($("#first-train").val().trim(), "hh:mm").subtract(10, "years").format("x");
   var trainFreq = $("#trainFreq").val().trim();
 
 
@@ -32,8 +32,6 @@ $("#submit").on("click", function() {
     firstTrain: firstTrain,
     trainFreq: trainFreq
   }
-  
-  console.log(newTrain);
   
   trainDatabase.ref().push(newTrain);
   

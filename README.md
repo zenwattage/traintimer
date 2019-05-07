@@ -1,8 +1,2 @@
-# traintimer
+# Train Timer / Scheduler
 
-## Table of Contents
--[Installation](#installation)
-
-
-## Installation
-```npm i ```
